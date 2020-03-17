@@ -22,7 +22,7 @@ export default function App() {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       {/* <Image source={{ uri:"https://i.imgur.com/TkIrScD.png"}} style={styles.logo} /> */}
 
       <Camera style={styles.cameraView} type={type} ratio='4:3'>
@@ -40,15 +40,29 @@ export default function App() {
         </View>
       </Camera>
 
-      <TouchableOpacity style={styles.buttonCameraFlip} onPress={() => {
-        setType(
-          type === Camera.Constants.Type.back
-            ? Camera.Constants.Type.front
-            : Camera.Constants.Type.back
-          );
-        }}>
-        <Text style={styles.buttonCameraFlipText}>Flip</Text>
-      </TouchableOpacity>
+      <View style={styles.buttons}>
+        <TouchableOpacity style={styles.buttonCameraFlip} onPress={() => {
+          setType(
+            type === Camera.Constants.Type.back
+              ? Camera.Constants.Type.front
+              : Camera.Constants.Type.back
+            );
+          }}>
+          <Text style={styles.buttonCameraFlipText}>Flip</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonTakePhoto} onPress={() => {
+            // ref={ref => {
+            //   this.camera = ref;
+            // }}
+            // takePicture = async () => {
+            //   if (this.camera) {
+            //     let photo = await this.camera.takePictureAsync();
+            //   }
+            // }
+          }}>
+          <Text style={styles.buttonTakePhotoText}>Take a photo</Text>
+        </TouchableOpacity>
+      </View>
 
       <Text style={styles.instructions}>
         Test!!
@@ -68,14 +82,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignContent: 'center',
     justifyContent: 'center',
-  },
-  logo: {
-    width: 305,
-    height: 159,
-    marginBottom: 10,
   },
   instructions: {
     color:'#888',
@@ -98,21 +106,39 @@ const styles = StyleSheet.create({
   },
   buttonCameraFlip: {
     backgroundColor: 'blue',
-    marginLeft: 20,
-    marginTop: 10,
+    // alignSelf: 'center',
+    margin: 10,
     padding: 10,
-    paddingLeft: 20,
     borderRadius: 5,
     width: 80,
   },
   buttonCameraFlipText: {
     fontSize: 20,
     color: '#fff',
+    alignSelf: 'center'
   },
   cameraView: {
     height: 400,
     width: 300,
     marginHorizontal: 30,
-    marginTop: 50,
+  },
+  buttons: {
+    // alignItems: 'center',
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  buttonTakePhotoText: {
+    alignSelf: 'center',
+    fontSize: 20,
+    color: '#fff'
+  },
+  buttonTakePhoto: {
+    backgroundColor: 'purple',
+    // alignSelf: 'center',
+    padding: 10,
+    margin: 10,
+    borderRadius: 5, 
+    width: 200,
   }
 });
