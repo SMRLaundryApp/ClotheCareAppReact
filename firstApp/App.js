@@ -22,13 +22,13 @@ export default function App() {
   }
 
   return (
-    <View style={{flex:1}}>
+    <View>
       {/* <Image source={{ uri:"https://i.imgur.com/TkIrScD.png"}} style={styles.logo} /> */}
 
       <Camera style={styles.cameraView} type={type} ratio='4:3'>
 
         <View style={styles.camera}>
-          <TouchableOpacity style={styles.buttonCameraFlip} onPress={() => {
+          {/* <TouchableOpacity style={styles.buttonCameraFlip} onPress={() => {
             setType(
               type === Camera.Constants.Type.back
                 ? Camera.Constants.Type.front
@@ -36,20 +36,30 @@ export default function App() {
               );
             }}>
             <Text style={styles.buttonCameraFlipText}>Flip</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </Camera>
 
+      <TouchableOpacity style={styles.buttonCameraFlip} onPress={() => {
+        setType(
+          type === Camera.Constants.Type.back
+            ? Camera.Constants.Type.front
+            : Camera.Constants.Type.back
+          );
+        }}>
+        <Text style={styles.buttonCameraFlipText}>Flip</Text>
+      </TouchableOpacity>
+
       <Text style={styles.instructions}>
-        Test
+        Test!!
         To share a photo from your phone with a friend, just press the button below!
       </Text>
 
-      {/* <TouchableOpacity
+      <TouchableOpacity
         onPress={() => alert('Hello, world!')}
         style={styles.button}>
         <Text style={styles.buttonText}>Take a photo</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
 
     </View>
   );
@@ -84,19 +94,20 @@ const styles = StyleSheet.create({
   camera: {
     height: 640,
     width: 360,
-    flex: 1,
     backgroundColor: 'transparent',
-    flexDirection: 'row',
   },
   buttonCameraFlip: {
-    flex: 0.1,
-    alignSelf: 'flex-end',
-    alignItems: 'center',
+    backgroundColor: 'blue',
+    marginLeft: 20,
+    marginTop: 10,
+    padding: 10,
+    paddingLeft: 20,
+    borderRadius: 5,
+    width: 80,
   },
   buttonCameraFlipText: {
-    fontSize: 18,
-    marginBottom: 10,
-    color: 'white',
+    fontSize: 20,
+    color: '#fff',
   },
   cameraView: {
     height: 400,
