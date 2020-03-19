@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Button, TouchableOpacity } from 'react-native';
 
 import CameraPage from './src/camera.page';
 import styles from './src/styles';
@@ -8,6 +8,7 @@ export default class App extends React.Component {
     render() {
         return (
           <CameraPage />
+          
         );
     };
 };
