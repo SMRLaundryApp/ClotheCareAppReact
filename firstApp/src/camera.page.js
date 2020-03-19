@@ -1,7 +1,7 @@
 import React from 'react';
 import { Camera } from 'expo-camera';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { RNFetchBlob } from 'react-native-fetch-blob';
+// import { RNFetchBlob } from 'react-native-fetch-blob';
 import * as Permissions from 'expo-permissions';
 
 import styles from './styles';
